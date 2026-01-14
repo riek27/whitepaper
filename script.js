@@ -1,3 +1,5 @@
+// Common functionality for all pages
+
 // Preloader
 window.addEventListener('load', () => {
     const preloader = document.querySelector('.preloader');
@@ -14,16 +16,24 @@ window.addEventListener('load', () => {
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-}));
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        
+        // Update active state
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        n.classList.add('active');
+    }));
+}
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
@@ -35,40 +45,332 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Parallax effect for elements with data-parallax attribute
-function initParallax() {
-    const parallaxElements = document.querySelectorAll('[data-parallax]');
+// Animated counter for stats
+function initStatsCounter() {
+    const counters = document.querySelectorAll('.stat-number');
     
-    window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset;
+    if (!counters.length) return;
+    
+    counters.forEach(counter => {
+        const target = +counter.getAttribute('data-count');
+        const increment = target / 200;
+        let current = 0;
         
-        parallaxElements.forEach(element => {
-            const speed = parseFloat(element.getAttribute('data-parallax'));
-            const yPos = -(scrollTop * speed);
-            element.style.transform = `translateY(${yPos}px)`;
+        const updateCounter = () => {
+            if (current < target) {
+                current += increment;
+                counter.textContent = Math.ceil(current);
+                setTimeout(updateCounter, 10);
+            } else {
+                counter.textContent = target;
+            }
+        };
+        
+        // Start counter when element is in viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    updateCounter();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        observer.observe(counter);
+    });
+}
+
+// Gallery Filter Functionality
+function initGalleryFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-grid-item');
+    
+    if (!filterButtons.length || !galleryItems.length) return;
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            galleryItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
         });
     });
 }
 
-// Initialize Three.js 3D Scene
+// Gallery Lightbox
+function initGalleryLightbox() {
+    const galleryItems = document.querySelectorAll('.gallery-grid-item');
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    
+    if (!galleryItems.length || !lightbox) return;
+    
+    let currentIndex = 0;
+    const images = [];
+    
+    // Collect all gallery images
+    galleryItems.forEach((item, index) => {
+        const img = item.querySelector('img');
+        const title = item.querySelector('h3').textContent;
+        const location = item.querySelector('p').textContent;
+        
+        images.push({
+            src: img.src,
+            title: title,
+            location: location
+        });
+        
+        // Add click event to each gallery item
+        item.addEventListener('click', () => {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // Close lightbox
+    lightboxClose.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+    
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Navigation
+    lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        updateLightbox();
+    });
+    
+    lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentIndex = (currentIndex + 1) % images.length;
+        updateLightbox();
+    });
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        } else if (e.key === 'ArrowLeft') {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateLightbox();
+        } else if (e.key === 'ArrowRight') {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateLightbox();
+        }
+    });
+    
+    function updateLightbox() {
+        const image = images[currentIndex];
+        lightboxImg.src = image.src;
+        lightboxCaption.querySelector('h3').textContent = image.title;
+        lightboxCaption.querySelector('p').textContent = image.location;
+    }
+}
+
+// Contact Form Validation
+function initContactForm() {
+    const contactForm = document.getElementById('contact-form');
+    
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Basic validation
+        const requiredFields = contactForm.querySelectorAll('[required]');
+        let isValid = true;
+        
+        // Reset previous error states
+        contactForm.querySelectorAll('.form-group').forEach(group => {
+            group.classList.remove('error');
+        });
+        
+        // Validate each required field
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // Email validation
+            if (field.type === 'email' && field.value.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value)) {
+                    field.parentElement.classList.add('error');
+                    isValid = false;
+                }
+            }
+        });
+        
+        if (isValid) {
+            // Simulate form submission
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalText = submitBtn.querySelector('span').textContent;
+            const originalIcon = submitBtn.innerHTML;
+            
+            submitBtn.querySelector('span').textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                // Show success message
+                const successMessage = document.createElement('div');
+                successMessage.className = 'form-success';
+                successMessage.innerHTML = `
+                    <div style="background: #4CAF50; color: white; padding: 20px; border-radius: 2px; text-align: center; margin-top: 20px;">
+                        <h3><i class="fas fa-check-circle"></i> Thank You!</h3>
+                        <p>Your message has been sent successfully. We will contact you within 24 hours to discuss your project.</p>
+                    </div>
+                `;
+                
+                contactForm.parentNode.insertBefore(successMessage, contactForm.nextSibling);
+                
+                // Reset form
+                contactForm.reset();
+                submitBtn.querySelector('span').textContent = originalText;
+                submitBtn.disabled = false;
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth' });
+                
+                // Remove success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.remove();
+                }, 5000);
+            }, 1500);
+        }
+    });
+}
+
+// FAQ Accordion
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    if (!faqItems.length) return;
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        const toggle = item.querySelector('.faq-toggle');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-answer').style.display = 'none';
+                    otherItem.querySelector('.faq-toggle i').className = 'fas fa-plus';
+                }
+            });
+            
+            // Toggle current item
+            const isActive = item.classList.contains('active');
+            
+            if (isActive) {
+                item.classList.remove('active');
+                answer.style.display = 'none';
+                toggle.querySelector('i').className = 'fas fa-plus';
+            } else {
+                item.classList.add('active');
+                answer.style.display = 'block';
+                toggle.querySelector('i').className = 'fas fa-minus';
+            }
+        });
+    });
+}
+
+// Load More Projects Button
+function initLoadMore() {
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    
+    if (!loadMoreBtn) return;
+    
+    loadMoreBtn.addEventListener('click', () => {
+        // Simulate loading more projects
+        loadMoreBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+        loadMoreBtn.disabled = true;
+        
+        setTimeout(() => {
+            // In a real implementation, this would fetch more projects from a server
+            loadMoreBtn.textContent = 'All Projects Loaded';
+            loadMoreBtn.style.opacity = '0.5';
+            loadMoreBtn.style.cursor = 'default';
+            
+            // Show a message
+            const message = document.createElement('p');
+            message.textContent = 'All projects are currently displayed.';
+            message.style.textAlign = 'center';
+            message.style.color = '#777';
+            message.style.marginTop = '20px';
+            
+            loadMoreBtn.parentNode.appendChild(message);
+        }, 1500);
+    });
+}
+
+// Three.js 3D Animation for Home Page
 function initThreeJS() {
     // Check if Three.js is available and device is capable
     if (typeof THREE === 'undefined' || window.innerWidth < 768) {
         // Show fallback image on mobile or if Three.js fails
-        document.querySelector('.hero-fallback').style.display = 'block';
+        const heroFallback = document.querySelector('.hero-fallback');
+        if (heroFallback) {
+            heroFallback.style.display = 'block';
+        }
         return;
     }
+    
+    const container = document.getElementById('three-container');
+    if (!container) return;
     
     // Scene setup
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ 
+        antialias: true, 
+        alpha: true,
+        powerPreference: "high-performance"
+    });
     
-    const container = document.getElementById('three-container');
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1;
     container.appendChild(renderer.domElement);
     
     // Lighting
@@ -78,6 +380,10 @@ function initThreeJS() {
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight.position.set(10, 20, 5);
     directionalLight.castShadow = true;
+    directionalLight.shadow.mapSize.width = 2048;
+    directionalLight.shadow.mapSize.height = 2048;
+    directionalLight.shadow.camera.near = 0.5;
+    directionalLight.shadow.camera.far = 50;
     directionalLight.shadow.camera.left = -20;
     directionalLight.shadow.camera.right = 20;
     directionalLight.shadow.camera.top = 20;
@@ -89,7 +395,7 @@ function initThreeJS() {
     rimLight.position.set(-10, 10, -5);
     scene.add(rimLight);
     
-    // Create a simple luxury house model (simplified for performance)
+    // Create a simple luxury house model
     function createHouse() {
         const houseGroup = new THREE.Group();
         
@@ -103,6 +409,7 @@ function initThreeJS() {
         const mainBuilding = new THREE.Mesh(mainGeometry, mainMaterial);
         mainBuilding.castShadow = true;
         mainBuilding.receiveShadow = true;
+        mainBuilding.position.y = 2;
         houseGroup.add(mainBuilding);
         
         // Roof
@@ -113,7 +420,7 @@ function initThreeJS() {
             metalness: 0.05
         });
         const roof = new THREE.Mesh(roofGeometry, roofMaterial);
-        roof.position.y = 3;
+        roof.position.y = 5;
         roof.rotation.y = Math.PI / 4;
         roof.castShadow = true;
         houseGroup.add(roof);
@@ -133,10 +440,10 @@ function initThreeJS() {
             
             if (i < 2) {
                 // Front windows
-                windowMesh.position.set(i * 2 - 1, 0.5, 4.05);
+                windowMesh.position.set(i * 2 - 1, 2.5, 4.05);
             } else {
                 // Side windows
-                windowMesh.position.set(3.05, 0.5, (i-2) * 3 - 1.5);
+                windowMesh.position.set(3.05, 2.5, (i-2) * 3 - 1.5);
                 windowMesh.rotation.y = Math.PI / 2;
             }
             
@@ -151,7 +458,7 @@ function initThreeJS() {
             metalness: 0.1
         });
         const door = new THREE.Mesh(doorGeometry, doorMaterial);
-        door.position.set(0, -0.9, 4.05);
+        door.position.set(0, 1.1, 4.05);
         door.castShadow = true;
         houseGroup.add(door);
         
@@ -164,11 +471,10 @@ function initThreeJS() {
         });
         const ground = new THREE.Mesh(groundGeometry, groundMaterial);
         ground.rotation.x = -Math.PI / 2;
-        ground.position.y = -2.5;
         ground.receiveShadow = true;
         houseGroup.add(ground);
         
-        // Decorative elements
+        // Decorative pillars
         const pillarGeometry = new THREE.CylinderGeometry(0.2, 0.2, 4);
         const pillarMaterial = new THREE.MeshStandardMaterial({ 
             color: 0xd4b896,
@@ -180,9 +486,28 @@ function initThreeJS() {
             const pillar = new THREE.Mesh(pillarGeometry, pillarMaterial);
             const xPos = i % 2 === 0 ? -2.5 : 2.5;
             const zPos = i < 2 ? -3 : 3;
-            pillar.position.set(xPos, 0, zPos);
+            pillar.position.set(xPos, 2, zPos);
             pillar.castShadow = true;
             houseGroup.add(pillar);
+        }
+        
+        // Add some decorative elements
+        const sphereGeometry = new THREE.SphereGeometry(0.3, 16, 16);
+        const sphereMaterial = new THREE.MeshStandardMaterial({ 
+            color: 0xb19777,
+            roughness: 0.4,
+            metalness: 0.5
+        });
+        
+        for (let i = 0; i < 6; i++) {
+            const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+            sphere.position.set(
+                (Math.random() - 0.5) * 10,
+                0.3,
+                (Math.random() - 0.5) * 10
+            );
+            sphere.castShadow = true;
+            houseGroup.add(sphere);
         }
         
         return houseGroup;
@@ -247,12 +572,16 @@ function initThreeJS() {
         // Subtle camera movement based on mouse position
         camera.position.x = Math.sin(time * 0.2) * 2 + mouseX * 0.5;
         camera.position.y = 5 + Math.sin(time * 0.3) * 0.5 + mouseY * 0.5;
-        camera.lookAt(0, 0, 0);
+        camera.lookAt(0, 2, 0);
         
         // Animate particles
         particles.children.forEach((particle, i) => {
             particle.position.y += Math.sin(time + i) * 0.002;
             particle.position.x += Math.cos(time + i * 0.5) * 0.002;
+            
+            // Keep particles within bounds
+            if (particle.position.y > 15) particle.position.y = 0;
+            if (particle.position.x > 15) particle.position.x = -15;
         });
         
         renderer.render(scene, camera);
@@ -271,252 +600,37 @@ function initThreeJS() {
     animate();
 }
 
-// Gallery Lightbox
-function initGallery() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const lightbox = document.querySelector('.lightbox');
-    const lightboxImg = document.querySelector('.lightbox-img');
-    const lightboxCaption = document.querySelector('.lightbox-caption');
-    const lightboxClose = document.querySelector('.lightbox-close');
-    const lightboxPrev = document.querySelector('.lightbox-prev');
-    const lightboxNext = document.querySelector('.lightbox-next');
-    
-    let currentIndex = 0;
-    
-    // Open lightbox
-    galleryItems.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            currentIndex = index;
-            updateLightbox();
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
-    });
-    
-    // Close lightbox
-    lightboxClose.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-    
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-    
-    // Navigation
-    lightboxPrev.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-        updateLightbox();
-    });
-    
-    lightboxNext.addEventListener('click', (e) => {
-        e.stopPropagation();
-        currentIndex = (currentIndex + 1) % galleryItems.length;
-        updateLightbox();
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
-        
-        if (e.key === 'Escape') {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        } else if (e.key === 'ArrowLeft') {
-            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-            updateLightbox();
-        } else if (e.key === 'ArrowRight') {
-            currentIndex = (currentIndex + 1) % galleryItems.length;
-            updateLightbox();
-        }
-    });
-    
-    function updateLightbox() {
-        const item = galleryItems[currentIndex];
-        const imgSrc = item.querySelector('img').src;
-        const title = item.querySelector('h3').textContent;
-        const description = item.querySelector('p').textContent;
-        
-        lightboxImg.src = imgSrc;
-        lightboxCaption.querySelector('h3').textContent = title;
-        lightboxCaption.querySelector('p').textContent = description;
-    }
-}
-
-// Testimonials Slider
-function initTestimonials() {
-    const slides = document.querySelectorAll('.testimonial-slide');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.testimonial-prev');
-    const nextBtn = document.querySelector('.testimonial-next');
-    
-    let currentSlide = 0;
-    
-    // Show slide
-    function showSlide(n) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        
-        currentSlide = (n + slides.length) % slides.length;
-        
-        slides[currentSlide].classList.add('active');
-        dots[currentSlide].classList.add('active');
-    }
-    
-    // Next slide
-    function nextSlide() {
-        showSlide(currentSlide + 1);
-    }
-    
-    // Previous slide
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
-    
-    // Event listeners
-    prevBtn.addEventListener('click', prevSlide);
-    nextBtn.addEventListener('click', nextSlide);
-    
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            showSlide(index);
-        });
-    });
-    
-    // Auto slide every 5 seconds
-    setInterval(nextSlide, 5000);
-}
-
-// Contact Form Validation
-function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Basic validation
-        const name = document.getElementById('name');
-        const email = document.getElementById('email');
-        const message = document.getElementById('message');
-        
-        let isValid = true;
-        
-        // Reset previous error states
-        document.querySelectorAll('.form-group').forEach(group => {
-            group.classList.remove('error');
-        });
-        
-        // Validate name
-        if (!name.value.trim()) {
-            name.parentElement.classList.add('error');
-            isValid = false;
-        }
-        
-        // Validate email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email.value)) {
-            email.parentElement.classList.add('error');
-            isValid = false;
-        }
-        
-        // Validate message
-        if (!message.value.trim()) {
-            message.parentElement.classList.add('error');
-            isValid = false;
-        }
-        
-        if (isValid) {
-            // Simulate form submission
-            const submitBtn = contactForm.querySelector('.submit-btn');
-            const originalText = submitBtn.querySelector('span').textContent;
-            
-            submitBtn.querySelector('span').textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Thank you for your message! We will contact you soon to discuss your vision.');
-                contactForm.reset();
-                submitBtn.querySelector('span').textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        }
-    });
-}
-
-// Service Card Hover Effects
-function initServiceCards() {
-    const serviceCards = document.querySelectorAll('.service-card');
-    
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.zIndex = '10';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.zIndex = '1';
-        });
-    });
-}
-
-// Smooth Scrolling for Anchor Links
-function initSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.offsetTop - navbarHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// Initialize everything when DOM is loaded
+// Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    initParallax();
-    initThreeJS();
-    initGallery();
-    initTestimonials();
+    // Common functionality
+    initStatsCounter();
     initContactForm();
-    initServiceCards();
-    initSmoothScrolling();
+    initLoadMore();
     
-    // Add CSS for form errors
-    const style = document.createElement('style');
-    style.textContent = `
-        .form-group.error input,
-        .form-group.error select,
-        .form-group.error textarea {
-            border-bottom-color: #ff6b6b;
-        }
-        
-        .form-group.error label {
-            color: #ff6b6b;
-        }
-        
-        @media (max-width: 768px) {
-            .three-container canvas {
-                display: none;
-            }
-            
-            .hero-fallback {
-                display: block;
-            }
-        }
-    `;
-    document.head.appendChild(style);
+    // Page-specific functionality will be initialized by page-specific scripts
 });
+
+// Add CSS for form errors
+const style = document.createElement('style');
+style.textContent = `
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea {
+        border-bottom-color: #ff6b6b;
+    }
+    
+    .form-group.error label {
+        color: #ff6b6b;
+    }
+    
+    @media (max-width: 768px) {
+        .three-container canvas {
+            display: none;
+        }
+        
+        .hero-fallback {
+            display: block;
+        }
+    }
+`;
+document.head.appendChild(style);
