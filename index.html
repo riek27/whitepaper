@@ -8,9 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* CSS will be embedded here for completeness */
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Preloader -->
@@ -27,21 +25,22 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h1>Haven</h1>
-                <span class="logo-subtitle">HOMES</span>
+                <a href="index.html">
+                    <h1>Haven</h1>
+                    <span class="logo-subtitle">HOMES</span>
+                </a>
             </div>
             
             <ul class="nav-menu">
-                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
-                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
             
             <div class="nav-cta">
-                <a href="#contact" class="cta-button">Start Your Journey</a>
+                <a href="contact.html" class="cta-button">Start Your Journey</a>
             </div>
             
             <div class="hamburger">
@@ -68,8 +67,8 @@
                 <h1 class="hero-title">Crafting Your <span class="highlight">Dream Home</span></h1>
                 <p class="hero-description">Where architectural mastery meets bespoke luxury, creating timeless residences that become your personal sanctuary.</p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="primary-btn">Begin Your Vision <i class="fas fa-arrow-right"></i></a>
-                    <a href="#gallery" class="secondary-btn">View Our Portfolio</a>
+                    <a href="contact.html" class="primary-btn">Begin Your Vision <i class="fas fa-arrow-right"></i></a>
+                    <a href="gallery.html" class="secondary-btn">View Our Portfolio</a>
                 </div>
             </div>
             
@@ -80,401 +79,137 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
+    <!-- Featured Projects Section -->
+    <section class="section featured-projects">
         <div class="section-header">
-            <div class="section-subtitle">Our Philosophy</div>
-            <h2 class="section-title">Architectural Excellence Since 1998</h2>
+            <div class="section-subtitle">Signature Creations</div>
+            <h2 class="section-title">Featured Projects</h2>
             <div class="divider"></div>
         </div>
         
-        <div class="about-container">
-            <div class="about-content">
-                <p class="about-text">At Haven Homes, we believe a home should be more than just a living space—it should be a reflection of your identity, a sanctuary that nurtures your spirit, and a testament to timeless craftsmanship.</p>
-                
-                <div class="about-stats">
-                    <div class="stat">
-                        <div class="stat-number">25<span>+</span></div>
-                        <div class="stat-text">Years of Excellence</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">180<span>+</span></div>
-                        <div class="stat-text">Dream Homes Created</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">12</div>
-                        <div class="stat-text">International Awards</div>
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');">
+                    <div class="project-overlay">
+                        <span class="project-tag">Traditional</span>
                     </div>
                 </div>
-                
-                <p class="about-text">Our team of visionary architects, master builders, and interior designers work in harmony to transform your vision into a tangible reality, where every detail is meticulously considered and executed with precision.</p>
-                
-                <a href="#contact" class="about-cta">Discover Our Process <i class="fas fa-chevron-right"></i></a>
+                <div class="project-info">
+                    <h3>Riverbend Estate</h3>
+                    <p>Greenwich, Connecticut</p>
+                    <a href="gallery.html" class="project-link">View Project <i class="fas fa-chevron-right"></i></a>
+                </div>
             </div>
             
-            <div class="about-images">
-                <div class="about-img-main" data-parallax="0.2"></div>
-                <div class="about-img-secondary" data-parallax="0.1"></div>
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');">
+                    <div class="project-overlay">
+                        <span class="project-tag">Contemporary</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Cliffside Villa</h3>
+                    <p>Malibu, California</p>
+                    <a href="gallery.html" class="project-link">View Project <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1600585154340-963ed7476d07?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w-800&q=80');">
+                    <div class="project-overlay">
+                        <span class="project-tag">Modern</span>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Skyline Residence</h3>
+                    <p>New York, New York</p>
+                    <a href="gallery.html" class="project-link">View Project <i class="fas fa-chevron-right"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section services">
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-overlay"></div>
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number" data-count="25">0</div>
+                <div class="stat-text">Years of Excellence</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="180">0</div>
+                <div class="stat-text">Dream Homes Created</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="12">0</div>
+                <div class="stat-text">International Awards</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-text">Expert Craftsmen</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="section services-preview">
         <div class="section-header">
             <div class="section-subtitle">Our Expertise</div>
-            <h2 class="section-title">Bespoke Home Building Services</h2>
+            <h2 class="section-title">Comprehensive Luxury Services</h2>
             <div class="divider"></div>
         </div>
         
-        <div class="services-container">
-            <div class="service-card">
+        <div class="services-preview-container">
+            <div class="service-preview">
                 <div class="service-icon">
                     <i class="fas fa-drafting-compass"></i>
                 </div>
-                <h3 class="service-title">Custom Home Design</h3>
-                <p class="service-description">From concept to completion, we create unique architectural designs tailored to your lifestyle, site, and aesthetic preferences.</p>
-                <div class="service-hover-content">
-                    <ul>
-                        <li>Architectural Design</li>
-                        <li>Site Analysis</li>
-                        <li>3D Visualization</li>
-                        <li>Permit Acquisition</li>
-                    </ul>
-                </div>
+                <h3>Custom Design</h3>
+                <p>Bespoke architectural solutions tailored to your vision.</p>
+                <a href="services.html" class="service-link">Learn More</a>
             </div>
             
-            <div class="service-card">
+            <div class="service-preview">
                 <div class="service-icon">
                     <i class="fas fa-home"></i>
                 </div>
-                <h3 class="service-title">Luxury Construction</h3>
-                <p class="service-description">Master craftsmanship and premium materials converge to build homes of exceptional quality, durability, and beauty.</p>
-                <div class="service-hover-content">
-                    <ul>
-                        <li>Foundation to Finish</li>
-                        <li>Premium Materials</li>
-                        <li>Quality Assurance</li>
-                        <li>Timeline Management</li>
-                    </ul>
-                </div>
+                <h3>Construction</h3>
+                <p>Master craftsmanship with premium, sustainable materials.</p>
+                <a href="services.html" class="service-link">Learn More</a>
             </div>
             
-            <div class="service-card">
+            <div class="service-preview">
                 <div class="service-icon">
                     <i class="fas fa-couch"></i>
                 </div>
-                <h3 class="service-title">Interior Design</h3>
-                <p class="service-description">Our interior designers curate spaces that balance aesthetics, functionality, and personal expression with meticulous attention to detail.</p>
-                <div class="service-hover-content">
-                    <ul>
-                        <li>Space Planning</li>
-                        <li>Material Selection</li>
-                        <li>Furniture Curation</li>
-                        <li>Lighting Design</li>
-                    </ul>
-                </div>
+                <h3>Interior Design</h3>
+                <p>Curated spaces balancing aesthetics and functionality.</p>
+                <a href="services.html" class="service-link">Learn More</a>
             </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-sync-alt"></i>
-                </div>
-                <h3 class="service-title">Renovation & Restoration</h3>
-                <p class="service-description">Breathing new life into existing structures while preserving their character and enhancing their functionality for modern living.</p>
-                <div class="service-hover-content">
-                    <ul>
-                        <li>Historical Restoration</li>
-                        <li>Modern Upgrades</li>
-                        <li>Structural Reinforcements</li>
-                        <li>Energy Efficiency</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-tasks"></i>
-                </div>
-                <h3 class="service-title">Project Management</h3>
-                <p class="service-description">Seamless coordination of all project phases, ensuring timelines, budgets, and quality standards are consistently met.</p>
-                <div class="service-hover-content">
-                    <ul>
-                        <li>Vendor Coordination</li>
-                        <li>Budget Oversight</li>
-                        <li>Timeline Adherence</li>
-                        <li>Client Communication</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h3 class="service-title">Consultation</h3>
-                <p class="service-description">Expert guidance through every decision, from land selection to final finishes, ensuring your vision becomes reality.</p>
-                <div class="service-hover-content">
-                    <ul>
-                        <li>Site Evaluation</li>
-                        <li>Budget Planning</li>
-                        <li>Design Consultation</li>
-                        <li>Sustainable Solutions</li>
-                    </ul>
-                </div>
-            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="services.html" class="primary-btn">View All Services <i class="fas fa-chevron-right"></i></a>
         </div>
     </section>
 
-    <!-- Gallery Section -->
-    <section id="gallery" class="section gallery">
-        <div class="section-header">
-            <div class="section-subtitle">Our Portfolio</div>
-            <h2 class="section-title">Exemplary Craftsmanship</h2>
-            <div class="divider"></div>
-        </div>
-        
-        <div class="gallery-container">
-            <div class="gallery-item" data-category="modern">
-                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Luxury Home" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>Hilltop Modern</h3>
-                    <p>Los Angeles, California</p>
-                </div>
-            </div>
-            
-            <div class="gallery-item" data-category="traditional">
-                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Traditional Estate" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>Riverbend Estate</h3>
-                    <p>Greenwich, Connecticut</p>
-                </div>
-            </div>
-            
-            <div class="gallery-item" data-category="contemporary">
-                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Contemporary Villa" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>Cliffside Villa</h3>
-                    <p>Malibu, California</p>
-                </div>
-            </div>
-            
-            <div class="gallery-item" data-category="modern">
-                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Minimalist Residence" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>Skyline Residence</h3>
-                    <p>New York, New York</p>
-                </div>
-            </div>
-            
-            <div class="gallery-item" data-category="traditional">
-                <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Country Manor" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>Willow Creek Manor</h3>
-                    <p>Charleston, South Carolina</p>
-                </div>
-            </div>
-            
-            <div class="gallery-item" data-category="contemporary">
-                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lakeside Retreat" loading="lazy">
-                <div class="gallery-overlay">
-                    <h3>Lakeview Retreat</h3>
-                    <p>Seattle, Washington</p>
+    <!-- Testimonials Preview -->
+    <section class="testimonials-preview">
+        <div class="testimonials-overlay"></div>
+        <div class="testimonials-preview-container">
+            <div class="testimonial-preview-content">
+                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                <p class="testimonial-text">"Haven Homes transformed our vision into a masterpiece. Their attention to detail and commitment to excellence is unparalleled."</p>
+                <div class="testimonial-author">
+                    <h4>Robert Chen</h4>
+                    <p>Greenwich Estate Project</p>
                 </div>
             </div>
         </div>
         
-        <!-- Lightbox Modal -->
-        <div class="lightbox">
-            <div class="lightbox-content">
-                <span class="lightbox-close">&times;</span>
-                <img class="lightbox-img" src="" alt="">
-                <div class="lightbox-caption">
-                    <h3></h3>
-                    <p></p>
-                </div>
-                <div class="lightbox-nav">
-                    <span class="lightbox-prev"><i class="fas fa-chevron-left"></i></span>
-                    <span class="lightbox-next"><i class="fas fa-chevron-right"></i></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section testimonials">
-        <div class="section-header">
-            <div class="section-subtitle">Client Stories</div>
-            <h2 class="section-title">Testimonials of Excellence</h2>
-            <div class="divider"></div>
-        </div>
-        
-        <div class="testimonials-container">
-            <div class="testimonial-slider">
-                <div class="testimonial-slide active">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                        <p class="testimonial-text">"Working with Haven Homes was a transformative experience. They captured our vision perfectly and delivered a home that exceeded every expectation. The attention to detail is remarkable."</p>
-                        <div class="testimonial-author">
-                            <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
-                            <div class="author-info">
-                                <h4>Robert Chen</h4>
-                                <p>Greenwich Estate Project</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                        <p class="testimonial-text">"From the initial design consultation to the final walkthrough, the Haven team demonstrated exceptional professionalism and craftsmanship. Our home is a masterpiece that we will cherish for generations."</p>
-                        <div class="testimonial-author">
-                            <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
-                            <div class="author-info">
-                                <h4>Amanda Richardson</h4>
-                                <p>Malibu Cliffside Villa</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                        <p class="testimonial-text">"The renovation of our century-old home was handled with such care and expertise. Haven Homes preserved the historical charm while integrating modern amenities seamlessly. We couldn't be happier."</p>
-                        <div class="testimonial-author">
-                            <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/men/65.jpg');"></div>
-                            <div class="author-info">
-                                <h4>James O'Connell</h4>
-                                <p>Historical Restoration Project</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
-                        <p class="testimonial-text">"Building a custom home can be daunting, but Haven Homes made the process enjoyable and stress-free. Their project management kept everything on schedule and within budget. The result is spectacular."</p>
-                        <div class="testimonial-author">
-                            <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');"></div>
-                            <div class="author-info">
-                                <h4>Sarah Johnson</h4>
-                                <p>Modern Mountain Retreat</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="testimonial-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-            
-            <div class="testimonial-nav">
-                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
-                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="section-header">
-            <div class="section-subtitle">Begin Your Journey</div>
-            <h2 class="section-title">Craft Your Vision With Us</h2>
-            <div class="divider"></div>
-        </div>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3 class="contact-title">Start The Conversation</h3>
-                <p class="contact-description">Contact us to schedule a private consultation and begin transforming your vision into a bespoke living experience.</p>
-                
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Visit Our Studio</h4>
-                            <p>123 Architectural Way, Beverly Hills, CA 90210</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Call Us</h4>
-                            <p>(310) 555-0123</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>Email Us</h4>
-                            <p>vision@havenhomes.com</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-houzz"></i></a>
-                </div>
-            </div>
-            
-            <div class="contact-form-container">
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Full Name *</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required>
-                        <label for="email">Email Address *</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="tel" id="phone" name="phone">
-                        <label for="phone">Phone Number</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <select id="service" name="service">
-                            <option value="" disabled selected></option>
-                            <option value="design">Custom Home Design</option>
-                            <option value="construction">Luxury Construction</option>
-                            <option value="interior">Interior Design</option>
-                            <option value="renovation">Renovation & Restoration</option>
-                            <option value="consultation">Consultation</option>
-                        </select>
-                        <label for="service">Service Interest</label>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                        <label for="message">Your Vision *</label>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        <span>Submit Your Vision</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
-            </div>
+        <div class="text-center">
+            <a href="contact.html" class="secondary-btn">View More Testimonials</a>
         </div>
     </section>
 
@@ -482,8 +217,10 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">
-                <h1>Haven</h1>
-                <span class="logo-subtitle">HOMES</span>
+                <a href="index.html">
+                    <h1>Haven</h1>
+                    <span class="logo-subtitle">HOMES</span>
+                </a>
                 <p class="footer-tagline">Crafting Timeless Residences Since 1998</p>
             </div>
             
@@ -491,33 +228,42 @@
                 <div class="footer-column">
                     <h4>Navigation</h4>
                     <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services">Custom Home Design</a></li>
-                        <li><a href="#services">Luxury Construction</a></li>
-                        <li><a href="#services">Interior Design</a></li>
-                        <li><a href="#services">Renovation</a></li>
-                        <li><a href="#services">Project Management</a></li>
+                        <li><a href="services.html">Custom Home Design</a></li>
+                        <li><a href="services.html">Luxury Construction</a></li>
+                        <li><a href="services.html">Interior Design</a></li>
+                        <li><a href="services.html">Renovation</a></li>
+                        <li><a href="services.html">Project Management</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h4>Connect</h4>
                     <ul>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">Pinterest</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">Houzz</a></li>
-                        <li><a href="#contact">Schedule Consultation</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-houzz"></i> Houzz</a></li>
+                        <li><a href="contact.html"><i class="fas fa-calendar"></i> Schedule Consultation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Architectural Way, Beverly Hills, CA 90210</li>
+                        <li><i class="fas fa-phone"></i> (310) 555-0123</li>
+                        <li><i class="fas fa-envelope"></i> vision@havenhomes.com</li>
                     </ul>
                 </div>
             </div>
@@ -530,8 +276,14 @@
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
     <script>
-        // JavaScript will be embedded here for completeness
+        // Home page specific Three.js initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('three-container')) {
+                initThreeJS();
+            }
+        });
     </script>
 </body>
 </html>
