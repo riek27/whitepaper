@@ -3,383 +3,535 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlocentraAI Whitepaper</title>
+    <title>Haven Homes | Crafting Luxury Dream Homes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #1a5fb4;
-            --secondary: #1c71d8;
-            --accent: #26a269;
-            --dark: #1a1a1a;
-            --light: #f6f5f4;
-            --gray: #deddda;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            color: var(--dark);
-            background-color: var(--light);
-            line-height: 1.6;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid var(--primary);
-            margin-bottom: 30px;
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            color: var(--secondary);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        h1, h2, h3, h4 {
-            color: var(--primary);
-            margin: 20px 0 10px;
-        }
-        
-        h1 {
-            font-size: 2.2rem;
-            border-bottom: 1px solid var(--gray);
-            padding-bottom: 10px;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            color: var(--secondary);
-        }
-        
-        p {
-            margin: 15px 0;
-        }
-        
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .toc {
-            flex: 1;
-            min-width: 250px;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .content {
-            flex: 3;
-            min-width: 300px;
-        }
-        
-        .section {
-            background: white;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .highlight {
-            background-color: rgba(38, 162, 105, 0.1);
-            border-left: 4px solid var(--accent);
-            padding: 15px;
-            margin: 15px 0;
-        }
-        
-        ul, ol {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-        
-        li {
-            margin-bottom: 8px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid var(--gray);
-        }
-        
-        th {
-            background-color: var(--primary);
-            color: white;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            border-top: 1px solid var(--gray);
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-        }
+        /* CSS will be embedded here for completeness */
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">BLOCENTRA AI</div>
-        <div class="tagline">Bitcoin Insurance & Risk Intelligence Platform</div>
-        <h1>Whitepaper</h1>
-    </header>
-    
-    <div class="container">
-        <div class="toc">
-            <h2>Table of Contents</h2>
-            <ul>
-                <li><a href="#executive">Executive Summary</a></li>
-                <li><a href="#mission">Mission Statement</a></li>
-                <li><a href="#vision">Vision Statement</a></li>
-                <li><a href="#problem">Problem Statement</a></li>
-                <li><a href="#solution">Solution Overview</a></li>
-                <li><a href="#target">Target Customers</a></li>
-                <li><a href="#market">Market Opportunity</a></li>
-                <li><a href="#business">Business Model</a></li>
-                <li><a href="#strategy">Go-To-Market Strategy</a></li>
-                <li><a href="#advantage">Competitive Advantage</a></li>
-                <li><a href="#team">Team & Hiring Plan</a></li>
-                <li><a href="#financial">Financial Projections</a></li>
-                <li><a href="#roadmap">Traction & Roadmap</a></li>
-                <li><a href="#expansion">Global Expansion Plan</a></li>
-                <li><a href="#funding">Funding Needs</a></li>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="logo-loader">
+                <h1>Haven</h1>
+                <div class="loader-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>Haven</h1>
+                <span class="logo-subtitle">HOMES</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+            
+            <div class="nav-cta">
+                <a href="#contact" class="cta-button">Start Your Journey</a>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D Background -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        
+        <!-- 3D Canvas Container -->
+        <div id="three-container" class="three-container"></div>
+        
+        <!-- Static fallback image (for mobile/performance) -->
+        <div class="hero-fallback"></div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-subtitle">ELEGANCE REDEFINED</div>
+                <h1 class="hero-title">Crafting Your <span class="highlight">Dream Home</span></h1>
+                <p class="hero-description">Where architectural mastery meets bespoke luxury, creating timeless residences that become your personal sanctuary.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="primary-btn">Begin Your Vision <i class="fas fa-arrow-right"></i></a>
+                    <a href="#gallery" class="secondary-btn">View Our Portfolio</a>
+                </div>
+            </div>
+            
+            <div class="hero-scroll-indicator">
+                <div class="scroll-line"></div>
+                <span>Explore</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="section-header">
+            <div class="section-subtitle">Our Philosophy</div>
+            <h2 class="section-title">Architectural Excellence Since 1998</h2>
+            <div class="divider"></div>
         </div>
         
-        <div class="content">
-            <div class="section" id="executive">
-                <h2>Executive Summary</h2>
-                <p>BlocentraAI is a revolutionary AI-powered Bitcoin insurance and risk intelligence startup, purpose-built to redefine the safety, utility, and productivity of Bitcoin in the modern financial era. As the global adoption of digital assets accelerates, over 99% of Bitcoin remains idle, uninsured, and disconnected from intelligent financial infrastructure.</p>
+        <div class="about-container">
+            <div class="about-content">
+                <p class="about-text">At Haven Homes, we believe a home should be more than just a living space—it should be a reflection of your identity, a sanctuary that nurtures your spirit, and a testament to timeless craftsmanship.</p>
                 
-                <div class="highlight">
-                    BlocentraAI addresses this critical gap by introducing a trustless, AI-native platform that provides dynamic protection, predictive analytics, and safe capital activation for BTC holders of all types.
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">25<span>+</span></div>
+                        <div class="stat-text">Years of Excellence</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">180<span>+</span></div>
+                        <div class="stat-text">Dream Homes Created</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">12</div>
+                        <div class="stat-text">International Awards</div>
+                    </div>
                 </div>
                 
-                <p>We are strategically launching from US, leveraging its innovation-friendly regulatory environment and digital-first business infrastructure, with a clear roadmap for expansion into the EU,  Asia, the Middle East, and LATAM.</p>
+                <p class="about-text">Our team of visionary architects, master builders, and interior designers work in harmony to transform your vision into a tangible reality, where every detail is meticulously considered and executed with precision.</p>
                 
-                <p>Our business model blends SaaS subscriptions, AI-powered insurance premiums, API licensing, and BTCFi yield sharing into a high-margin, scalable framework. Financial projections show exponential growth: from $4.6M in year 1 to $430M by year 5, protecting over $27B worth of BTC globally.</p>
+                <a href="#contact" class="about-cta">Discover Our Process <i class="fas fa-chevron-right"></i></a>
             </div>
             
-            <div class="section" id="mission">
-                <h2>Mission Statement</h2>
-                <p>At BlocentraAI, our mission is to fundamentally transform how the world perceives, protects, and utilizes Bitcoin by creating a groundbreaking AI-powered infrastructure that brings institutional-grade insurance, real-time risk intelligence, and secure yield activation to BTC holders everywhere.</p>
-                
-                <p>We are committed to bridging the gap between Bitcoin's decentralized nature and the rigorous risk management demands of traditional finance, enabling every participant—from individual HODLers to large institutions—to confidently hold, use, and grow their Bitcoin assets.</p>
-                
-                <div class="highlight">
-                    Ultimately, our mission is to accelerate the mainstream adoption of Bitcoin by making it safe, intelligent, and financially efficient.
+            <div class="about-images">
+                <div class="about-img-main" data-parallax="0.2"></div>
+                <div class="about-img-secondary" data-parallax="0.1"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="section-header">
+            <div class="section-subtitle">Our Expertise</div>
+            <h2 class="section-title">Bespoke Home Building Services</h2>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-drafting-compass"></i>
                 </div>
-            </div>
-            
-            <div class="section" id="vision">
-                <h2>Vision Statement</h2>
-                <p>BlocentraAI envisions a world where Bitcoin transcends its current role as merely a digital store of value to become a fully integrated, trusted, and insured pillar of the global financial ecosystem.</p>
-                
-                <p>We see a future where every Bitcoin transaction, wallet, and protocol is fortified by cutting-edge AI-driven risk intelligence, predictive analytics, and automated protection mechanisms — making Bitcoin as reliable and compliant as traditional fiat currencies safeguarded by centuries-old financial institutions.</p>
-                
-                <div class="highlight">
-                    Our vision is to establish BlocentraAI as the definitive global trust layer for Bitcoin.
-                </div>
-            </div>
-            
-            <div class="section" id="problem">
-                <h2>Problem Statement</h2>
-                <p>Despite Bitcoin's massive valuation and adoption, it remains underprotected and underutilized. Today:</p>
-                
-                <ul>
-                    <li>Over 99% of BTC sits idle, with no protection or yield</li>
-                    <li>There is no native insurance standard for BTC wallets or transactions</li>
-                    <li>Retail users lack wallet security and behavioral risk detection tools</li>
-                    <li>Institutions are hesitant to enter due to compliance, loss risks, and lack of underwriting infrastructure</li>
-                    <li>No AI-native solution exists to forecast market events or detect wallet anomalies in real time</li>
-                </ul>
-                
-                <p>Traditional insurers lack the tools to assess decentralized risk, while crypto-native protocols are focused on Ethereum and overlook BTC-specific architecture. There is a massive infrastructure gap for Bitcoin-native protection.</p>
-            </div>
-            
-            <div class="section" id="solution">
-                <h2>Solution Overview</h2>
-                <p>BlocentraAI is pioneering an AI-native, modular infrastructure platform explicitly designed to address Bitcoin's unique security, insurance, and capital productivity challenges.</p>
-                
-                <h3>Key Features:</h3>
-                <ol>
-                    <li><strong>Idle Bitcoin Unlocking:</strong> Enable BTC holders to unlock value from dormant assets without selling or wrapping</li>
-                    <li><strong>AI-Powered Bitcoin Insurance:</strong> Offer dynamically priced, behavior-driven insurance policies</li>
-                    <li><strong>Real-Time BTC Risk Intelligence Engine:</strong> Continuously analyze wallet activity and transaction patterns</li>
-                    <li><strong>Predictive AI Risk Models:</strong> Employ advanced forecasting algorithms to anticipate systemic risks</li>
-                    <li><strong>Non-Custodial and Custodial Protection:</strong> Provide flexible coverage options</li>
-                    <li><strong>Institutional-Grade Compliance Dashboards:</strong> Equip exchanges and funds with transparent risk analytics</li>
-                    <li><strong>Smart Underwriting and Automated Claims Processing:</strong> Leverage AI to automate underwriting decisions</li>
-                    <li><strong>AI-Managed Yield and Lending Access:</strong> Facilitate secure, risk-scored lending opportunities</li>
-                    <li><strong>Robust B2B API Ecosystem:</strong> Offer modular APIs for seamless integration</li>
-                    <li><strong>Global Bitcoin Protection Infrastructure:</strong> Establish a unified trust and safety standard</li>
-                </ol>
-            </div>
-            
-            <div class="section" id="target">
-                <h2>Target Customers</h2>
-                <p>BlocentraAI is designed to serve a broad and growing set of customers across the Bitcoin ecosystem:</p>
-                
-                <ul>
-                    <li><strong>Retail Bitcoin Holders:</strong> Individual investors seeking affordable insurance and yield opportunities</li>
-                    <li><strong>High-Net-Worth Individuals & Family Offices:</strong> Investors requiring bespoke, institutional-grade insurance products</li>
-                    <li><strong>Crypto Custodians & Wallet Providers:</strong> Service providers looking to embed insurance offerings</li>
-                    <li><strong>Institutions & Asset Managers:</strong> Hedge funds, ETFs, and traditional financial institutions</li>
-                    <li><strong>Exchanges & OTC Desks:</strong> Trading platforms requiring sophisticated wallet reputation systems</li>
-                    <li><strong>DeFi & BTCFi Protocols:</strong> Developers building Bitcoin Layer 2 solutions</li>
-                    <li><strong>Regulators & Governments:</strong> Authorities seeking aggregated Bitcoin risk intelligence</li>
-                </ul>
-            </div>
-            
-            <div class="section" id="market">
-                <h2>Market Opportunity</h2>
-                <p>The market opportunity for BlocentraAI is immense, multifaceted, and poised for exponential growth as Bitcoin market cap is $2.1+T and continues its evolution from a niche digital asset to a mainstream financial instrument.</p>
-                
-                <h3>Key Market Verticals:</h3>
-                <ul>
-                    <li><strong>Crypto Insurance Market:</strong> Projected to exceed $40 billion by 2030</li>
-                    <li><strong>Bitcoin Financialization (BTCFi):</strong> Over $25 billion in idle Bitcoin projected to participate in lending and yield farming by 2026</li>
-                    <li><strong>Institutional Adoption & Compliance:</strong> Demand for transparent, compliant risk management tools is skyrocketing</li>
-                    <li><strong>Retail Market Growth:</strong> Democratization of Bitcoin ownership drives sustained growth</li>
-                    <li><strong>Regulatory & Governmental Use Cases:</strong> Governments seeking data-driven tools to monitor Bitcoin risk flows</li>
-                </ul>
-                
-                <div class="highlight">
-                    Collectively, these factors create a once-in-a-decade inflection point for Bitcoin risk infrastructure.
+                <h3 class="service-title">Custom Home Design</h3>
+                <p class="service-description">From concept to completion, we create unique architectural designs tailored to your lifestyle, site, and aesthetic preferences.</p>
+                <div class="service-hover-content">
+                    <ul>
+                        <li>Architectural Design</li>
+                        <li>Site Analysis</li>
+                        <li>3D Visualization</li>
+                        <li>Permit Acquisition</li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="section" id="business">
-                <h2>Business Model</h2>
-                <p>BlocentraAI's business model captures revenue across the full Bitcoin value chain through multiple streams:</p>
-                
-                <ol>
-                    <li><strong>SaaS Subscriptions:</strong> Freemium access for retail, tiered institutional plans</li>
-                    <li><strong>Insurance Premiums:</strong> Dynamic pricing engine with average annual premium of 2% of BTC insured</li>
-                    <li><strong>API Licensing:</strong> Monetized APIs offering real-time risk scores and fraud intelligence</li>
-                    <li><strong>Yield Revenue Sharing:</strong> Share of generated interest from AI-vetted BTCFi lending pools</li>
-                    <li><strong>Enterprise Contracts:</strong> Dedicated deployments for exchanges and national crypto platforms</li>
-                    <li><strong>Risk Data Monetization:</strong> Anonymized macro insights licensed to trading desks and regulators</li>
-                </ol>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3 class="service-title">Luxury Construction</h3>
+                <p class="service-description">Master craftsmanship and premium materials converge to build homes of exceptional quality, durability, and beauty.</p>
+                <div class="service-hover-content">
+                    <ul>
+                        <li>Foundation to Finish</li>
+                        <li>Premium Materials</li>
+                        <li>Quality Assurance</li>
+                        <li>Timeline Management</li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="section" id="financial">
-                <h2>Financial Projections (Year 1–5)</h2>
-                <table>
-                    <tr>
-                        <th>Year</th>
-                        <th>BTC Protected</th>
-                        <th>Market Share</th>
-                        <th>Revenue from Premium</th>
-                        <th>Other Revenues</th>
-                        <th>Total Revenue</th>
-                    </tr>
-                    <tr>
-                        <td>Year 1</td>
-                        <td>$400M</td>
-                        <td>0.03%</td>
-                        <td>$3.6M</td>
-                        <td>$1M</td>
-                        <td>$4.6M</td>
-                    </tr>
-                    <tr>
-                        <td>Year 2</td>
-                        <td>$1.6B</td>
-                        <td>0.15%</td>
-                        <td>$14.4M</td>
-                        <td>$6.5M</td>
-                        <td>$20.9M</td>
-                    </tr>
-                    <tr>
-                        <td>Year 3</td>
-                        <td>$4.5B</td>
-                        <td>0.55%</td>
-                        <td>$57.6M</td>
-                        <td>$18.5M</td>
-                        <td>$76.1M</td>
-                    </tr>
-                    <tr>
-                        <td>Year 4</td>
-                        <td>$12B</td>
-                        <td>1.2%</td>
-                        <td>$144M</td>
-                        <td>$40M</td>
-                        <td>$184M</td>
-                    </tr>
-                    <tr>
-                        <td>Year 5</td>
-                        <td>$27B</td>
-                        <td>2.5%</td>
-                        <td>$360M</td>
-                        <td>$70M</td>
-                        <td>$430+M</td>
-                    </tr>
-                </table>
-                <p>Premium = 1.5% of BTC protected annually | Other revenues = subscription, API tools, vaults performance fee</p>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-couch"></i>
+                </div>
+                <h3 class="service-title">Interior Design</h3>
+                <p class="service-description">Our interior designers curate spaces that balance aesthetics, functionality, and personal expression with meticulous attention to detail.</p>
+                <div class="service-hover-content">
+                    <ul>
+                        <li>Space Planning</li>
+                        <li>Material Selection</li>
+                        <li>Furniture Curation</li>
+                        <li>Lighting Design</li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="section" id="funding">
-                <h2>Funding Needs</h2>
-                <p>We are seeking $7 million in pre-seed funding to:</p>
-                
-                <ol>
-                    <li><strong>Product Development:</strong> Finalize MVP with full AI scoring engine</li>
-                    <li><strong>Team Hiring:</strong> Build AI/ML and blockchain engineering team</li>
-                    <li><strong>Licensing & Regulatory Setup:</strong> Secure crypto insurance frameworks</li>
-                    <li><strong>Partnerships & Integrations:</strong> Onboard DeFi, custodians, wallets and institution</li>
-                    <li><strong>Marketing & GTM Launch:</strong> Launch awareness campaigns</li>
-                </ol>
-                
-                <div class="highlight">
-                    Total Funding Request: $7 million pre-seed funding<br>
-                    Runway Goal: 12–24 months, including launch in 3 regions and revenue targets
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <h3 class="service-title">Renovation & Restoration</h3>
+                <p class="service-description">Breathing new life into existing structures while preserving their character and enhancing their functionality for modern living.</p>
+                <div class="service-hover-content">
+                    <ul>
+                        <li>Historical Restoration</li>
+                        <li>Modern Upgrades</li>
+                        <li>Structural Reinforcements</li>
+                        <li>Energy Efficiency</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <h3 class="service-title">Project Management</h3>
+                <p class="service-description">Seamless coordination of all project phases, ensuring timelines, budgets, and quality standards are consistently met.</p>
+                <div class="service-hover-content">
+                    <ul>
+                        <li>Vendor Coordination</li>
+                        <li>Budget Oversight</li>
+                        <li>Timeline Adherence</li>
+                        <li>Client Communication</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="service-title">Consultation</h3>
+                <p class="service-description">Expert guidance through every decision, from land selection to final finishes, ensuring your vision becomes reality.</p>
+                <div class="service-hover-content">
+                    <ul>
+                        <li>Site Evaluation</li>
+                        <li>Budget Planning</li>
+                        <li>Design Consultation</li>
+                        <li>Sustainable Solutions</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <div class="footer">
-        <p>BlocentraAI - Securing the Future of Bitcoin with Intelligence, Safety, and Yield</p>
-        <p>Contact: riekgatluak25@gmail.com | WhatsApp: +211981211736</p>
-        <p>San Francisco, CA, US HQ – (Planned)</p>
-    </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="section gallery">
+        <div class="section-header">
+            <div class="section-subtitle">Our Portfolio</div>
+            <h2 class="section-title">Exemplary Craftsmanship</h2>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="gallery-container">
+            <div class="gallery-item" data-category="modern">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Modern Luxury Home" loading="lazy">
+                <div class="gallery-overlay">
+                    <h3>Hilltop Modern</h3>
+                    <p>Los Angeles, California</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="traditional">
+                <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Traditional Estate" loading="lazy">
+                <div class="gallery-overlay">
+                    <h3>Riverbend Estate</h3>
+                    <p>Greenwich, Connecticut</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="contemporary">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Contemporary Villa" loading="lazy">
+                <div class="gallery-overlay">
+                    <h3>Cliffside Villa</h3>
+                    <p>Malibu, California</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="modern">
+                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Minimalist Residence" loading="lazy">
+                <div class="gallery-overlay">
+                    <h3>Skyline Residence</h3>
+                    <p>New York, New York</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="traditional">
+                <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Country Manor" loading="lazy">
+                <div class="gallery-overlay">
+                    <h3>Willow Creek Manor</h3>
+                    <p>Charleston, South Carolina</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="contemporary">
+                <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Lakeside Retreat" loading="lazy">
+                <div class="gallery-overlay">
+                    <h3>Lakeview Retreat</h3>
+                    <p>Seattle, Washington</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lightbox Modal -->
+        <div class="lightbox">
+            <div class="lightbox-content">
+                <span class="lightbox-close">&times;</span>
+                <img class="lightbox-img" src="" alt="">
+                <div class="lightbox-caption">
+                    <h3></h3>
+                    <p></p>
+                </div>
+                <div class="lightbox-nav">
+                    <span class="lightbox-prev"><i class="fas fa-chevron-left"></i></span>
+                    <span class="lightbox-next"><i class="fas fa-chevron-right"></i></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials">
+        <div class="section-header">
+            <div class="section-subtitle">Client Stories</div>
+            <h2 class="section-title">Testimonials of Excellence</h2>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                        <p class="testimonial-text">"Working with Haven Homes was a transformative experience. They captured our vision perfectly and delivered a home that exceeded every expectation. The attention to detail is remarkable."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
+                            <div class="author-info">
+                                <h4>Robert Chen</h4>
+                                <p>Greenwich Estate Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                        <p class="testimonial-text">"From the initial design consultation to the final walkthrough, the Haven team demonstrated exceptional professionalism and craftsmanship. Our home is a masterpiece that we will cherish for generations."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                            <div class="author-info">
+                                <h4>Amanda Richardson</h4>
+                                <p>Malibu Cliffside Villa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                        <p class="testimonial-text">"The renovation of our century-old home was handled with such care and expertise. Haven Homes preserved the historical charm while integrating modern amenities seamlessly. We couldn't be happier."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/men/65.jpg');"></div>
+                            <div class="author-info">
+                                <h4>James O'Connell</h4>
+                                <p>Historical Restoration Project</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                        <p class="testimonial-text">"Building a custom home can be daunting, but Haven Homes made the process enjoyable and stress-free. Their project management kept everything on schedule and within budget. The result is spectacular."</p>
+                        <div class="testimonial-author">
+                            <div class="author-img" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg');"></div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Modern Mountain Retreat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            
+            <div class="testimonial-nav">
+                <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="section-header">
+            <div class="section-subtitle">Begin Your Journey</div>
+            <h2 class="section-title">Craft Your Vision With Us</h2>
+            <div class="divider"></div>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3 class="contact-title">Start The Conversation</h3>
+                <p class="contact-description">Contact us to schedule a private consultation and begin transforming your vision into a bespoke living experience.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Visit Our Studio</h4>
+                            <p>123 Architectural Way, Beverly Hills, CA 90210</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Call Us</h4>
+                            <p>(310) 555-0123</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email Us</h4>
+                            <p>vision@havenhomes.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-houzz"></i></a>
+                </div>
+            </div>
+            
+            <div class="contact-form-container">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Full Name *</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email Address *</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="tel" id="phone" name="phone">
+                        <label for="phone">Phone Number</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select id="service" name="service">
+                            <option value="" disabled selected></option>
+                            <option value="design">Custom Home Design</option>
+                            <option value="construction">Luxury Construction</option>
+                            <option value="interior">Interior Design</option>
+                            <option value="renovation">Renovation & Restoration</option>
+                            <option value="consultation">Consultation</option>
+                        </select>
+                        <label for="service">Service Interest</label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        <label for="message">Your Vision *</label>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <span>Submit Your Vision</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <h1>Haven</h1>
+                <span class="logo-subtitle">HOMES</span>
+                <p class="footer-tagline">Crafting Timeless Residences Since 1998</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Custom Home Design</a></li>
+                        <li><a href="#services">Luxury Construction</a></li>
+                        <li><a href="#services">Interior Design</a></li>
+                        <li><a href="#services">Renovation</a></li>
+                        <li><a href="#services">Project Management</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Houzz</a></li>
+                        <li><a href="#contact">Schedule Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Haven Homes. All rights reserved. | Luxury Custom Home Builder</p>
+            <p>Designed with <i class="fas fa-heart"></i> for extraordinary living</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // JavaScript will be embedded here for completeness
+    </script>
 </body>
 </html>
